@@ -1,0 +1,11 @@
+Packages to Install:
+git-crypt
+python3
+
+
+
+Things to Do:
+biuld appdaemon from source
+setup homeassistant influxdb database
+
+

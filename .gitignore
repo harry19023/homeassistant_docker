@@ -5,3 +5,6 @@ grafana/*
 influxdb/*
 !influxdb/.gitkeep
 duckdns/*
+portainer/*
+!portainer/.gitkeep
+*.swp
