@@ -1,0 +1,104 @@
+globals:
+  module: globals
+  class: Globals
+
+switch_reset:
+  module: switch_reset
+  class: SwitchReset
+  file: /home/homeassistant/.homeassistant/appDaemon/apps/switches.db
+  delay: '10'
+
+default_lights:
+  module: default_lights
+  class: DefaultLights
+  dependencies: globals
+
+sound:
+  module: sound
+  class: Sound
+  base: sounds
+  ip: 192.168.1.4
+  port: 8123
+
+good_morning:
+  module: good_morning
+  class: GoodMorning
+  dependencies: 
+    - globals
+    - default_lights
+
+computer_control:
+  module: computer_control
+  class: ComputerControl
+  dependencies: globals
+
+#roombalina:
+#  module: roombalina
+#  class: Roombalina
+#  dependencies: 
+#    - globals
+#    - home_away
+
+harmony:
+  module: harmony
+  class: Harmony
+  dependencies: 
+    - globals
+    - computer_control
+
+bathroom:
+  module: bathroom
+  class: Bathroom
+  dependencies:
+    -  globals
+  debug: 1
+
+bathroom_motion_light:
+  module: motion_light
+  class: MotionLight
+  sensor: binary_sensor.motion_sensor_bathroom
+  light: light.bathroom
+  dependencies: globals
+  debug: 0
+
+living_room_motion_light:
+  module: motion_light
+  class: MotionLight
+  sensor: binary_sensor.motion_sensor_living_room
+  light: light.living_room
+  dependencies: globals
+  debug: 0
+
+front_door_motion_lights:
+  module: motion_light
+  class: MotionLight
+  sensor: binary_sensor.motion_sensor_front_door
+  light: light.front_door
+  dependencies: globals
+  debug: 0
+
+bedroom_motion_light:
+  module: motion_light
+  class: MotionLight
+  sensor: binary_sensor.motion_sensor_bedroom
+  light: light.bedroom
+  dependencies: globals
+  debug: 0
+
+bedroom:
+  module: bedroom
+  class: Bedroom
+  dependencies: globals
+
+home_away:
+  module: home_away
+  class: HomeAway
+  dependencies:
+    - globals
+    - sound
+
+nest:
+  module: nest
+  class: Nest
+  dependencies: globals
+

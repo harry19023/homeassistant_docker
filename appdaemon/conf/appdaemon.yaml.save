@@ -1,0 +1,25 @@
+appdaemon:
+  plugins:
+    HASS:
+      type: hass
+      ha_url: !secret ha_url http://192.168.1.4:8123
+      token: !secret token
+  latitude: 37.7749
+  longitude: 122.4194
+  elevation: 50
+  time_zone: America/Los_Angeles
+http:
+  url: http://raspi:5050
+admin:
+api:
+hadashboard:
+logs:
+  main_log:
+    filename: /conf/logs/appdaemon.log
+  error_log:
+    filename: /conf/logs/error.log
+  diag_log:
+    filename: /conf/logs/diag.log
+  access_log:
+    filename: /conf/logs/access.log
+
