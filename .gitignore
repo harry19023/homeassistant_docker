@@ -5,5 +5,3 @@ grafana/*
 influxdb/*
 !influxdb/.gitkeep
 duckdns/*
-organizr/*
-organizr/nginx/site-confs/default
