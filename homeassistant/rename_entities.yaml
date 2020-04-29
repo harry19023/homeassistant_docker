@@ -1,0 +1,79 @@
+binary_sensor.door_window_sensor_158d0002518b1c:
+  name: Front Door Sensor
+  entity_id: binary_sensor.door_window_sensor_front_door
+
+binary_sensor.door_window_sensor_158d0002529bfb:
+  name: Bathroom Door Sensor
+  entity_id: binary_sensor.door_window_sensor_bathroom_door
+
+binary_sensor.door_window_sensor_158d0002537189:
+  name: Back Door
+  entity_id: binary_sensor.door_window_sensor_back_door
+
+binary_sensor.motion_sensor_158d0002b472cb:
+  name: Front Hallway Motion
+  entity_id: binary_sensor.motion_sensor_front_door
+
+binary_sensor.motion_sensor_158d0002b4395f:
+  name: Bathroom Motion
+  entity_id: binary_sensor.motion_sensor_bathroom
+
+binary_sensor.motion_sensor_158d0002b43a09:
+  name: Living Room Motion
+  entity_id:  binary_sensor.motion_sensor_living_room
+
+binary_sensor.switch_158d000223dcf2:
+  name: Bed Button Sage
+  entity_id: binary_sensor.bed_switch_sage
+
+binary_sensor.switch_158d0002243cb1:
+  name: Bed Button Harry
+  entity_id: binary_sensor.bed_switch_harry
+
+binary_sensor.switch_158d00022bbe41:
+  name: Front Door Button
+  entity_id: binary_sensor.front_door_switch
+
+sensor.illumination_158d0002b472cb:
+  name: Front Hallway Illumination Sensor
+  entity_id: sensor.illumination_front_hallway
+
+sensor.illumination_158d0002b4395f:
+  name: Bathroom Illumination Sensor
+  entity_id: sensor.illumination_bathroom
+
+sensor.illumination_158d0002b43a09:
+  name: Living Room Illumination Sensor
+  entity_id: sensor.illumination_living_room
+
+sensor.illumination_158d0002b45486:
+  name: Bedroom Illumination Sensor
+  entity_id: sensor.illumination_bedroom
+
+binary_sensor.motion_sensor_158d0002b45486:
+  name: Bedroom Motion Sensor
+  entity_id: binary_sensor.motion_sensor_bedroom
+
+sensor.illumination_7c49eb1d1569:
+  name: Xiaomi Gateway Illumination
+  entity_id:  sensor.illumination_gateway
+
+sensor.temperature_158d0001b8edce:
+  name: Bathroom Temperature Sensor
+  entity_id: sensor.temperature_bathroom
+
+sensor.humidity_158d0001b8edce:
+  name: Bathroom Humidity Sensor
+  entity_id: sensor.humidity_bathroom
+
+sensor.temperature_158d0001b7a3dd:
+  name: Bedroom Temperature Sensor
+  entity_id: sensor.temperature_bedroom
+
+sensor.humidity_158d0001b7a3dd:
+  name: Bedroom Humidity Sensor
+  entity_id: sensor.humidity_bedroom
+
+light.gateway_light_7c49eb1d1569:
+  name: Xiaomi Gateway Light
+  entity_id: light.gateway_light

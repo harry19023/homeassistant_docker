@@ -1,0 +1,121 @@
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+# turned off because I don't want some of the included components
+#default_config:
+
+# components from default_config
+# automation:    # used below
+#cloud:
+config:
+frontend:
+#history:
+#input_boolean   # used below
+#input_datetime  # used below
+input_number:
+input_select:
+input_text:
+#logbook:
+#map:
+#mobile_app:
+#person:
+#script:         # used below
+ssdp:
+system_health:
+#updater:
+zeroconf:
+#zone:
+
+
+
+
+
+
+# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+http:
+  base_url: !secret ha_url
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+influxdb:
+  port: 8086
+  username: !secret influxdb_username  
+  password: !secret influxdb_password
+  database: homeassistant
+  default_measurement: state
+# exclude stuff that is pointless to log
+#  exclude: 
+#    domains:
+#      - group 
+#    entities:
+#      - sensor.other_junk_you_dont_
+
+badnest:
+  user_id: !secret nest_user_id
+  access_token: !secret nest_access_token
+  region: us
+
+climate:
+  - platform: badnest
+    scan_interval: 10
+
+sensor:
+  - platform: badnest
+
+hacs:
+  token: !secret hacs_token
+  appdaemon: True
+
+vacuum:
+  - platform: roomba
+    host: !secret roomba_IP
+    username: !secret roomba_BLID
+    password: !secret roomba_password
+
+wake_on_lan:
+
+hue:
+  bridges:
+    - host: !secret hue_IP
+      allow_hue_groups: true
+
+input_boolean:
+  home:
+    name: Is anyone home?
+    initial: on
+  cleaning_needed:
+    name: Does roombalina need to run?
+    initial: off
+  alarm_on:
+    initial: on
+  in_bed:
+    name: Is anyone in bed?
+    initial: off
+  living_room_motion:
+    name: Living Room Motion Lights Status
+    initial: on
+
+input_datetime:
+  wake_up_time:
+    name: Morning Alarm Time
+    has_date: false
+    has_time: true
+    initial: '08:30:00'
+  bed_time:
+    name: Bed Cooldown Time
+    has_date: false
+    has_time: true
+    initial: '21:00:00'
+
+xiaomi_aqara:
+  discovery_retry: 5
+  gateways:
+    - key: !secret xiaomi_aqara_key
+      host: !secret xiaomi_aqara_IP
+
+
+group:
+automation: 
+script: 
+scene:
