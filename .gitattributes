@@ -3,7 +3,6 @@ homeassistant/.storage/** filter=git-crypt diff=git-crypt
 homeassistant/secrets.yaml filter=git-crypt diff=git-crypt
 homeassistant/.uuid filter=git-crypt diff=git-crypt
 homeassistant/harmony_12455557.conf filter=git-crypt diff=git-crypt
-secrets_test.txt filter=git-crypt diff=git-crypt
 
 
 
