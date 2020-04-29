@@ -1,2 +1,4 @@
 vc/*
 containerd/*
+grafana/*
+!grafana/.gitkeep
