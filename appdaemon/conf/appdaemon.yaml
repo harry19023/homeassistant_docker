@@ -11,8 +11,8 @@ appdaemon:
 http:
   url: !secret http_url
 admin:
-api:
-hadashboard:
+#api:
+#hadashboard:
 logs:
   main_log:
     filename: /conf/logs/appdaemon.log

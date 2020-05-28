@@ -92,5 +92,5 @@ class HomeAway(hass.Hass):
 
   def turn_on_door_listener(self, kwargs):
     self.log('Listening for door again')
-    self.door_listener_handle = self.listen_state(self.front_door_open, 'binary_sensor.door_window_front_door', new='on')
+    self.door_listener_handle = self.listen_state(self.front_door_open, 'binary_sensor.door_window_sensor_front_door', new='on')
 

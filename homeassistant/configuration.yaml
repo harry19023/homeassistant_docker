@@ -80,6 +80,14 @@ hue:
     - host: !secret hue_IP
       allow_hue_groups: true
 
+
+
+
+
+
+
+
+
 input_boolean:
   home:
     name: Is anyone home?

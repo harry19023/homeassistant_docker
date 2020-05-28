@@ -1,5 +1,18 @@
 version: "3.8"
 services:
+#  cadvisor:
+#    image: unibaktr/cadvisor
+#    container_name: cadvisor
+#    command: -storage_driver=influxdb -storage_driver_db=cadvisor -storage_driver_host=influxdb:8086
+#    ports:
+#      - 8080:8080
+#    volumes:
+#      - /:/rootfs:ro 
+#      - /var/run:/var/run:ro 
+#      - /sys:/sys:ro 
+#      - /var/lib/docker/:/var/lib/docker:ro 
+#      - /dev/disk/:/dev/disk:ro
+
   appdaemon:
     container_name: appdaemon
     image: appdaemon:latest
@@ -10,35 +23,40 @@ services:
     restart: on-failure
     depends_on:
       - homeassistant
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "500k"
+        max-file: "10"
 
-  grafana:
-    container_name: grafana
-    image: proxx/grafana-armv7
-    user: "1000"
-    ports:
-      - 3000:3000
-    volumes:
-      - /opt/grafana:/etc/grafana:rw
-      - /opt/grafana:/var/lib/grafana:rw
-      - /etc/timezone:/etc/timezone:ro
-    restart: on-failure
-    depends_on:
-      - influxdb
+#  grafana:
+#    container_name: grafana
+#    image: proxx/grafana-armv7
+#    user: "1000"
+#    ports:
+#      - 3000:3000
+#    volumes:
+#      - /opt/grafana:/etc/grafana:rw
+#      - /opt/grafana:/var/lib/grafana:rw
+#      - /etc/timezone:/etc/timezone:ro
+#    restart: on-failure
+#    depends_on:
+#      - influxdb
 
-  influxdb:
-    container_name: influxdb
-    image: influxdb
-    ports:
-      - 8086:8086
-    volumes:
-      - /opt/influxdb/influxdb.conf:/etc/influxdb/influxdb.conf:ro
-      - /opt/influxdb:/var/lib/influxdb
-    restart: on-failure
-    healthcheck:
-      test: ["CMD", "curl", "-sI", "http://127.0.0.1:8086/ping"]
-      interval: 30s
-      timeout: 1s
-      retries: 24
+#  influxdb:
+#    container_name: influxdb
+#    image: influxdb
+#    ports:
+#      - 8086:8086
+#    volumes:
+#      - /opt/influxdb/influxdb.conf:/etc/influxdb/influxdb.conf:ro
+#      - /opt/influxdb:/var/lib/influxdb
+#    restart: on-failure
+#    healthcheck:
+#      test: ["CMD", "curl", "-sI", "http://127.0.0.1:8086/ping"]
+#      interval: 30s
+#      timeout: 1s
+#      retries: 24
 
   homeassistant:
     container_name: homeassistant
@@ -49,13 +67,18 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - /etc/letsencrypt:/etc/letsencrypt:ro
     restart: on-failure
-    depends_on:
-      - influxdb
+#    depends_on:
+#      - influxdb
     healthcheck:
       test: ["CMD", "curl", "-f", "http://127.0.0.1:8123"]
       interval: 30s
       timeout: 10s
       retries: 6
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "500k"
+        max-file: "10"
 
   portainer:
     container_name: portainer
@@ -86,13 +109,4 @@ services:
       timeout: 10s
       retries: 5
 
-  dockermon:
-    container_name: dockermon
-    image: tribunex/ha-dockermon-pi
-    ports:
-      - 8126:8126
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - /opt/dockermon:/config
-    restart: on-failure
 

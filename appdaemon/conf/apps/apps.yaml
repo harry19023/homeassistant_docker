@@ -2,11 +2,11 @@ globals:
   module: globals
   class: Globals
 
-switch_reset:
-  module: switch_reset
-  class: SwitchReset
-  file: /home/homeassistant/.homeassistant/appDaemon/apps/switches.db
-  delay: '10'
+#switch_reset:
+#  module: switch_reset
+#  class: SwitchReset
+#  file: /home/homeassistant/.homeassistant/appDaemon/apps/switches.db
+#  delay: '10'
 
 default_lights:
   module: default_lights
@@ -51,7 +51,7 @@ bathroom:
   class: Bathroom
   dependencies:
     -  globals
-  debug: 1
+  debug: 0
 
 bathroom_motion_light:
   module: motion_light
